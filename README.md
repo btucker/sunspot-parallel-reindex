@@ -1,6 +1,6 @@
 # Sunspot::Parallel::Reindex
 
-TODO: Write a gem description
+Add support for multi-process reindexing with sunspot.  
 
 ## Installation
 
@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Parameters are all optional, just like `rake sunspot:reindex`
+
+    $ rake sunspot:reindex:parallel[<batch_size>, <models>, <processes>]
 
 ## Contributing
 
