@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ben@btucker.net"]
   spec.summary       = %q{Provide parallel reindexing to sunspot}
   spec.description   = %q{Supply `rake sunspot:reindex:parallel` to support multi-process reindexing}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/btucker/sunspot-parallel-reindex"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
