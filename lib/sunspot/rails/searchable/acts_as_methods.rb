@@ -50,5 +50,3 @@ module Sunspot
     end
   end
 end
-
-
