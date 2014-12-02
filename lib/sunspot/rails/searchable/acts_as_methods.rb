@@ -1,9 +1,10 @@
+require 'parallel'
+
 module Sunspot
   module Rails
     module Searchable
       module ActsAsMethods
         def solr_index_parallel(opts={})
-          require 'parallel'
 
           options = {
             :batch_size => Sunspot.config.indexing.default_batch_size,
@@ -28,7 +29,7 @@ module Sunspot
             batch_counter = 0
             self.includes(options[:include]).find_in_batches(find_in_batch_options) do |records|
               ::ActiveRecord::Base.establish_connection
-              Parallel.each(records.in_groups(exec_processor_size),
+              ::Parallel.each(records.in_groups(exec_processor_size),
                             in_processes: exec_processor_size,
                             finish: progress_lambda) do |batch|
                 ::ActiveRecord::Base.establish_connection
