@@ -1,6 +1,9 @@
 require "sunspot/parallel/reindex/version"
 require "sunspot/rails/searchable/acts_as_methods"
-require "sunspot/parallel/reindex/tasks"
+
+if defined?(Rails::Railtie)
+  require 'sunspot/parallel/reindex/railtie'
+end
 
 module Sunspot
   module Parallel
