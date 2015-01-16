@@ -64,4 +64,7 @@ namespace :sunspot do
       end
     end
   end
+  namespace :parallel do
+    task :reindex => Rake::Task['sunspot:reindex:parallel']
+  end
 end
