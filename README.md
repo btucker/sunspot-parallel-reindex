@@ -1,6 +1,8 @@
 # Sunspot::Parallel::Reindex
 
-Add support for multi-process reindexing with sunspot.  
+Add support for multi-process reindexing with sunspot.
+
+[![Gem Version](https://badge.fury.io/rb/sunspot-parallel-reindex.svg)](http://badge.fury.io/rb/sunspot-parallel-reindex)
 
 ## Installation
 
