@@ -1,7 +1,8 @@
 namespace :sunspot do
+  ARGNAMES = [:batch_size, :models, :exec_processor_size]
   namespace :reindex do
     desc "Reindex models in parallel"
-    task :parallel, [:batch_size, :models, :exec_processor_size] => :environment do |t, args|
+    task :parallel, ARGNAMES => :environment do |t, args|
       with_session(Sunspot::SessionProxy::Retry5xxSessionProxy.new(Sunspot.session)) do
         reindex_options = { :batch_commit => false,
                             :exec_processor_size => Parallel.processor_count,
@@ -65,6 +66,8 @@ namespace :sunspot do
     end
   end
   namespace :parallel do
-    task :reindex => Rake::Task['sunspot:reindex:parallel']
+    task :reindex, ARGNAMES do |_, args|
+      Rake::Task['sunspot:reindex:parallel'].invoke(*args)
+    end
   end
 end
