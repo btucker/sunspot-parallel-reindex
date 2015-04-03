@@ -24,7 +24,7 @@ Or install it yourself as:
 
 Parameters are all optional, just like `rake sunspot:reindex`
 
-    $ rake sunspot:reindex:parallel[<batch_size>, <models>, <processes>]
+    $ rake sunspot:reindex:parallel[<batch_size>,<models>,<processes>]
 
 ## Contributing
 
